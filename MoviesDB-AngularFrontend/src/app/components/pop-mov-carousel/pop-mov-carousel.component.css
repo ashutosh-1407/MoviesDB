@@ -1,0 +1,83 @@
+/* .picsum-img-wrapper { 
+    text-align: center;
+} */
+
+h5 {
+    text-align: left;
+}
+
+.card {
+    border: none;
+    background-color: #0a043c;
+}
+
+.card-group {
+    width: 83%;
+    margin: 0 auto 0;
+}
+
+:host ::ng-deep .carousel-indicators {
+    bottom: -30%;
+    /* color: red; */
+}
+
+:host ::ng-deep .carousel-caption {
+    text-align: left;
+    left: 12%;
+    bottom: 0;
+    padding-bottom: 0;
+    visibility: visible;
+}
+
+ngb-carousel:focus, .carousel-inner, .carousel-slide, .main {
+    outline: none;
+}
+
+:host ::ng-deep .carousel-inner {
+    overflow: visible;
+}
+
+:host ::ng-deep .carousel-control-prev {
+    width: 5%;
+    margin-left: 5%;
+}
+
+:host ::ng-deep .carousel-control-next {
+    width: 5%;
+    margin-right: 5%;
+}
+
+h1 {
+    color: white;
+    margin: 5% 8%;
+}
+
+:host ::ng-deep .mobile-arrow .carousel-control-prev {
+    width: 10%;
+    margin: auto -20% auto;
+    height: 10%;
+}
+
+:host ::ng-deep .mobile-arrow .carousel-control-next {
+    width: 10%;
+    margin: auto -20% auto;
+    height: 10%;
+}
+
+.picsum-img-wrapper p {
+    visibility: hidden;
+}
+
+.mobile-arrow .carousel-caption p{
+    visibility: visible;
+}
+
+/* .mobile-arrow .image-div{
+    display: inline-block; 
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 50%,rgba(0,0,0,0.9) 75%);
+}
+
+.mobile-arrow .image-div img {
+    position: relative;
+    z-index: -1;
+} */

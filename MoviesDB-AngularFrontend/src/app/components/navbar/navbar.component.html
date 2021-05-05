@@ -1,0 +1,28 @@
+<div class="main">
+    <nav class="navbar navbar-expand-lg cust-bg-dark">
+      <a class="navbar-brand" routerLink="/" routerLinkActive="active-link">USC Films</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/mylist" routerLinkActive="active-link">My List</a>
+            </li>
+          </ul>
+          <ng-template #rt let-r="result" let-t="term">
+            <a routerLink="/watch/{{r['media_type']}}/{{r['id']}}" style="text-decoration: none;">
+              <div>
+                <img [src]="r['backdrop_path']" class="mr-1" style="width: 6rem"/>
+                <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+              </div>
+            </a>
+          </ng-template>
+          <input #obj type="text" [ngClass]="{'form-control': !mobile_flag, 'form-control-m': mobile_flag}" [ngbTypeahead]="search" [resultTemplate]="rt" [inputFormatter]="formatter" 
+          (input)="textChanged($event)" (selectItem)="onSelect($event, obj)" placeholder="Search"/> 
+        </div>
+     </nav>
+  </div>

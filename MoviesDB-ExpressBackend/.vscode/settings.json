@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "C:\\Python37\\python.exe",
+    "appService.defaultWebAppToDeploy": "/subscriptions/dcefd0e7-f6ef-4524-978f-4a26ab4c92c6/resourceGroups/csci571-hw8-guptaash/providers/Microsoft.Web/sites/csci571-hw8-guptaash",
+    "appService.deploySubpath": "."
+}

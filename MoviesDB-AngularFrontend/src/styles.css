@@ -1,0 +1,60 @@
+body {
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 2rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lightgrey; 
+    border-radius: 2rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: grey; 
+}
+
+.image-div:hover{
+    display: inline-block; 
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 50%,rgba(0,0,0,0.9) 75%);
+}
+
+.image-div:hover img {
+    position: relative;
+    z-index: -1;
+}
+
+.card:hover {
+    display: inline-block;
+    transform: scale(1.1);
+}
+
+.image-div p {
+    visibility: hidden;
+}
+
+.image-div:hover p {
+    visibility: visible;
+    display: inline-block;
+}
+
+.image-div-m{
+    display: inline-block; 
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 50%,rgba(0,0,0,0.9) 75%);
+}
+
+.image-div-m img {
+    position: relative;
+    z-index: -1;
+}
+
+.card-m:hover {
+    display: inline-block;
+    transform: scale(1.1);
+}

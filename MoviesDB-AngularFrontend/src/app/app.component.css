@@ -1,0 +1,30 @@
+#footer {
+    color: white;
+    text-align: center;
+    margin: 7% 0 5%;
+    margin: 0;
+    background-color: #03061c;
+    padding: 3% 0 2%;
+    margin-top: 5%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* height: 2.5rem; */
+}
+
+#content {
+    margin-top: 5rem;
+    padding-bottom: 10rem;
+}
+
+app-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+}
+
+#main {
+    position: relative;
+    min-height: 89vh;
+}

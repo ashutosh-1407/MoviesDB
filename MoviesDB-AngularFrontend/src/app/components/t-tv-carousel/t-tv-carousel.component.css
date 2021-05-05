@@ -1,0 +1,49 @@
+h5 {
+    text-align: left;
+}
+
+ngb-carousel {
+    margin-top: 5%;
+}
+
+/* .main {
+    position: absolute;
+    top: 10%;
+} */
+
+.card {
+    border: none;
+    background-color: #0a043c;
+}
+
+.card-group {
+    width: 70%;
+    margin: 5% auto 5%;
+}
+
+/* :host ::ng-deep .carousel-indicators {
+    bottom: -65px;
+    display: none;
+} */
+
+:host ::ng-deep .carousel-caption {
+    text-align: left;
+    left: 12%;
+    bottom: 0;
+    padding-bottom: 0;
+}
+
+
+/* :host ::ng-deep .carousel-control-prev {
+    display: none;
+}
+
+:host ::ng-deep .carousel-control-next {
+    display: none;
+} */
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-top: 2%;
+}

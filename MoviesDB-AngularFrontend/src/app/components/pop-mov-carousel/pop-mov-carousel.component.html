@@ -1,0 +1,33 @@
+<div *ngIf="dataIsPresent" class="main" style="border: none;">
+    <h1>{{ type }}</h1>
+    <ngb-carousel *ngIf="!mobile_flag" #carousel [interval]="0" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+        <ng-template ngbSlide *ngFor="let image_grp of images_data">
+                <div class="card-group">
+                    <div class="card col-xl-2 col-lg-2" *ngFor="let img of image_grp; index as i">
+                    <a routerLink="/watch/{{media_type}}/{{img['id']}}">
+                        <div class="image-div">
+                            <img class="card-img-top" [src]="img['poster_path']" width="100%" height="100%">
+                            <div class="carousel-caption">
+                                <p>{{img['name']}}</p>
+                            </div>
+                        </div>
+                    </a> 
+                    </div>
+                </div>
+        </ng-template>
+    </ngb-carousel>
+    <ngb-carousel [ngClass]="{'mobile-arrow': mobile_flag}" *ngIf="mobile_flag" style="width: 60%; margin: 0 auto;" #carousel [interval]="0" [showNavigationArrows]="showNavigationArrows" [showNavigationIndicators]="showNavigationIndicators">
+        <ng-template  ngbSlide *ngFor="let image of images_data; index as i;">
+            <a routerLink="/watch/{{media_type}}/{{image['id']}}">
+                <div class="card-m">
+                    <div class="image-div-m">
+                        <img class="card-img-top" [src]="image['poster_path']">
+                        <div class="carousel-caption">
+                            <p>{{image['name']}}</p>
+                        </div>
+                    </div>
+                </div>
+            </a> 
+        </ng-template>
+    </ngb-carousel>
+</div>

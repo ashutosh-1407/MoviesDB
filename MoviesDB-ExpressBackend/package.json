@@ -1,0 +1,27 @@
+{
+  "name": "moviesdbnode",
+  "version": "1.0.0",
+  "description": "MoviesDB using ExpressJS, Angular, Bootstrap, AJAX and localStorage API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashutosh-1407/MoviesDBNode.git"
+  },
+  "author": "Ashutosh Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashutosh-1407/MoviesDBNode/issues"
+  },
+  "homepage": "https://github.com/ashutosh-1407/MoviesDBNode#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "keywords": []
+}

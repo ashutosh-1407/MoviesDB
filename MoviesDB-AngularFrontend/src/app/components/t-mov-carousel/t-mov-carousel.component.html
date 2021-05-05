@@ -1,0 +1,111 @@
+<div [ngClass]="{'main': !mobile_flag, 'main-m': mobile_flag}">
+    <div [ngClass]="{'player': !mobile_flag, 'player-m': mobile_flag}">
+        <youtube-player *ngIf="!mobile_flag"
+        [videoId]="data['trailer']"
+        [width]="700">
+        </youtube-player>
+        <youtube-player *ngIf="mobile_flag"
+        [videoId]="data['trailer']"
+        [width]="320"
+        [height]="160">
+        </youtube-player>
+    </div>
+    <div>
+        <p style="font-size: 2.7rem; margin-bottom: 0; line-height: 1">{{data['title']}}</p>
+        <p class="my-style" style="font-size: 1.3rem; margin-top: 1%; margin-bottom: 2.5%;"><i>{{data['tagline']}}</i></p>
+        <p class="my-style" style="font-size: 1.3rem;">{{data['year']}} | <span style="color: white;">&#9733;</span>&nbsp;{{data['averageVote']}} | {{data['duration']}}</p>
+        <p style="font-size: 1.1rem; margin-bottom: 0;">Genres: <span class="my-style">{{ data['genres'] }}</span></p>
+        <p style="font-size: 1.1rem;">Spoken Languages: <span class="my-style">{{ data['spokenLanguages'] }}</span></p>
+        <button class="btn btn-primary" (click)="watchlistFunc()">{{watchlistButtonText}}</button>
+        <ngb-alert class="btn" #selfClosingAlert *ngIf="successMessage" type="{{type}}" (closed)="successMessage = ''">{{successMessage}}
+        </ngb-alert>
+    </div>
+    <div style="clear: left;">
+      <div [ngClass]="{'shift-left': !mobile_flag}">
+        <p style="font-size: 1.5rem; margin-top: 5%;"><b>Description</b></p>
+        <p class="my-style" style="font-size: 1.1rem; margin: auto; margin-right: 1rem; text-align: justify;">{{ data['overview'] }}</p>
+        <p style="font-size: 1.5rem; margin-top: 5%;"><b>Share</b></p>
+        <a href="https://twitter.com/intent/tweet?text={{twitterData}}" target="_blank"><i class="fa fa-twitter" style="font-size:2rem;color:#00ACEE"></i></a>
+        <div style="display: inline;" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-size="small">
+          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D{{data['trailer']}}&amp;src=sdkpreparse">
+            <i class="fa fa-facebook-square" style="font-size:2rem;color:blue"></i>
+          </a>
+        </div>
+      </div>
+        <p style="font-size: 2.3rem; margin-top: 5%;"><b>Full Cast and Crew</b></p>
+        <div class="cast-div">
+        <div class="container-fluid">
+            <div class="row flex-nowrap">
+                <div class="cast-card col-xl-2 col-lg-3 col-md-4 col-6" *ngFor="let cast of data['cast']">
+                  <ng-template #content let-modal>
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="modal-basic-title">{{cast['name']}}</h4>
+                      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body" *ngIf="castDetails">
+                      <form>
+                        <div>
+                            <img [ngClass]="{'cast-pic': !mobile_flag, 'cast-pic-m': mobile_flag}" [src]="cast['profile_path']">
+                            <div>
+                              <p class="modal-card">Birth: <span class="my-style2">{{castDetails['birthday']}}</span></p>
+                              <p class="modal-card">Birthday: <span class="my-style2">{{castDetails['birth_place']}}</span></p>
+                              <p class="modal-card">Gender: <span class="my-style2">{{castDetails['gender']}}</span></p>
+                              <p class="modal-card" *ngIf="castDetails['homepage']">Website: <a target="_blank" href="{{castDetails['homepage']}}" class="my-style2">{{castDetails['homepage']}}</a></p>
+                              <p class="modal-card">Known for: <span class="my-style2">{{castDetails['known_for']}}</span></p>
+                              <p class="modal-card">Also known as: <span class="my-style2">{{castDetails['also_known_as']}}</span></p>
+                              <p>
+                                <a *ngIf="castDetails['ids'][0]['imdb']" target="_blank" href="https://imdb.com/name/{{castDetails['ids'][0]['imdb']}}">
+                                  <i class="fa fa-imdb" style="font-size:2rem;color:#f0c929" ngbTooltip="Visit IMDB"></i>
+                                </a>
+                                <a *ngIf="castDetails['ids'][1]['fb']" target="_blank" href="https://facebook.com/{{castDetails['ids'][1]['fb']}}">
+                                  <i class="fa fa-facebook-square" style="font-size:2rem;color:blue" ngbTooltip="Visit Facebook"></i>
+                                </a>
+                                <a *ngIf="castDetails['ids'][2]['insta']" target="_blank" href="https://instagram.com/{{castDetails['ids'][2]['insta']}}">
+                                  <i class="fa fa-instagram" style="font-size:2rem;color:#93329e" ngbTooltip="Visit Instagram"></i>
+                                </a>
+                                <a *ngIf="castDetails['ids'][3]['twitter']" target="_blank" href="https://twitter.com/{{castDetails['ids'][3]['twitter']}}">
+                                  <i class="fa fa-twitter" style="font-size:2rem;color:#00ACEE" ngbTooltip="Visit Twitter"></i>
+                                </a>
+                              </p>
+                            </div>
+                            <div class="biography">
+                              <p style="font-size: 1.7rem;"><b>Biography</b></p> 
+                              <p><span class="my-style2">{{castDetails['biography']}}</span></p>
+                            </div>
+                        </div>
+                      </form>
+                    </div>
+                  </ng-template>
+                    <div (click)="openLg(content, cast['id'])" style="margin-left: 1%; margin-right: 1%;">
+                    <img class="card-img-top" [src]="cast['profile_path']">
+                    <div class="card-body" style="background-color: white; color: black; text-align: center;">
+                        <p style="margin-bottom: 0;" class="card-text"><b>{{cast['name']}}</b></p>
+                        <p style="margin-top: 0; margin-bottom: 0;" class="card-text"><b>AS</b></p>
+                        <p class="card-text">{{cast['character']}}</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <p style="font-size: 2.3rem; margin-top: 5%;" *ngIf="data['reviews']"><b>Reviews <span class="my-style">{{data['reviews'].length}}</span></b></p>
+        <div class="review-card" *ngFor="let review of data['reviews']">
+            <!-- <div style="width: 20%;"> -->
+                <img [ngClass]="{'card-image': !mobile_flag, 'card-image-m': mobile_flag}" [src]="review['avatar_path']">
+                <!-- <img *ngIf="mobile_flag" class="card-image-m" [src]="review['avatar_path']"> -->
+            <!-- </div> -->
+            <div [ngClass]="{'card-data': !mobile_flag, 'card-data-m': mobile_flag}">
+                <p style="font-size: 1.5rem; padding-top: 2%;">A review created by {{ review['author'] }}&nbsp;<span class="rating">&nbsp;&nbsp;&#9733;{{ review['rating'] }}&nbsp;&nbsp;</span></p>
+                <p class="my-style1" style="margin-top: 4%;">Written by {{review['author']}} on {{review['created_at'] | date: "MMMM d, y, h:mm:ss a"}}</p>
+                <p class="review">{{review['content']}}</p>
+                <a href="https://themoviedb.org/review/{{review['id']}}" target="_blank"><p style="margin-bottom: 0; text-decoration: underline;">Read the rest</p></a><br>
+            </div>
+        </div>
+      
+        <app-pop-mov-carousel [type]="media_heading1" [media_id]="media_id"></app-pop-mov-carousel><br>
+        <app-pop-mov-carousel [type]="media_heading2" [media_id]="media_id"></app-pop-mov-carousel><br>
+      </div>
+
+</div>

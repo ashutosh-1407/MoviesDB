@@ -1,0 +1,32 @@
+<div class="main">
+    <h1 *ngIf="dataIsPresent" style="text-align: left; margin-left: 15%; margin-top: 2%;">My Watchlist</h1>
+    <h1 *ngIf="!dataIsPresent">No items found in Watchlist.</h1>
+    <div *ngIf="!mobile_flag" class="container-fluid">
+        <div class="card-group flex-nowrap" *ngFor="let image_grp of formattedData;">
+            <div class="card col-xl-2 col-lg-2 col-sm-12 col-12" *ngFor="let image of image_grp">
+                <a routerLink="/watch/{{image['media_type']}}/{{image['id']}}">
+                    <div class="image-div">
+                        <img class="card-img-top" [src]="image['poster_path']" alt="Card image cap">
+                        <div class="carousel-caption">
+                            <p>{{image['name']}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="mobile_flag"class="container-fluid">
+        <div class="card-group flex-nowrap" *ngFor="let image_grp of formattedData;">
+            <div class="card-m col-xl-2 col-lg-2 col-sm-12 col-12" *ngFor="let image of image_grp">
+                <a routerLink="/watch/{{image['media_type']}}/{{image['id']}}">
+                    <div class="image-div-m">
+                        <img class="card-img-top" [src]="image['poster_path']" alt="Card image cap">
+                        <div class="carousel-caption">
+                            <p>{{image['name']}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

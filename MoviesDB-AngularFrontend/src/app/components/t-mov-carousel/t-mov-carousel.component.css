@@ -1,0 +1,198 @@
+a {
+    padding: 0 0.5%;
+}
+
+.main {
+    color: white;
+    margin: 2% 15%;
+}
+
+.main-m {
+    color: white;
+    margin: 2% 6%; 
+}
+
+div.main {
+    position: relative;
+    top: 10%;
+}
+
+.player {
+    float: left;
+    margin-right: 5%;
+    /* width: 40%; */
+}
+
+.player-m {
+    text-align: center;
+    /* max-width: 100vw; */
+}
+
+.hidden {
+    background-color: #ddffbc;
+    color: darkgreen;
+    margin-top: 2%;
+    visibility: hidden;
+}
+
+.carousel-caption {
+    color: white;
+}
+
+.cast-card {
+    background-color: #0a043c;
+    padding-left: 0.3%;
+    padding-right: 0.3%;
+}
+
+.cast-div {
+    overflow-x: auto;
+}
+
+.cast-div::-webkit-scrollbar {
+    height: 0.5rem;
+}
+
+.card-img-top {
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+
+.card-body {
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+}
+
+.review-card {
+    background-color: white; 
+    color: black;
+    border-radius: 1rem;
+}
+
+/* .card-image img {
+    margin-left: 10%;
+    margin-top: 10%;
+} */
+
+.card-data {
+    margin: 2% 2% 2% 20%;
+}
+
+.card-data-m {
+    margin: 2% 2% 2% 4%;;
+}
+
+.card-image {
+    float: left;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%; 
+    margin-left: 4%;
+    margin-top: 2%;
+}
+
+.card-image-m {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%; 
+    margin-left: 10%;
+    /* margin-top: 50%; */
+}
+
+
+.rating {
+    background-color: black;
+    color: white;
+    border-radius: 1rem;
+}
+
+.review {
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.modal-image {
+    display: inline-block;
+    width: 50%;
+    margin-right: 5%;
+}
+
+.modal-data {
+    display: inline-block;
+    width: 50%;
+}
+
+.modal-body{
+    height: auto;
+    max-height: 38rem;
+    overflow-y: auto;
+}
+
+.modal-card {
+    line-height: 1;
+}
+
+.cast-pic {
+    float: left;
+    width: 22%;
+    margin-right: 3%;
+}
+
+.cast-pic-m {
+    display: block;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.biography {
+    clear: left;
+    padding-top: 3%;
+}
+
+ngb-alert {
+    margin-top: 2%;
+}
+
+/* :host ::ng-deep .my-tt-class{
+    background-color: white;
+    color: red;
+} */
+
+    /* .tooltip-arrow,
+.my-tt-class + .tooltip > .tooltip-inner {background-color: #f00;} */
+
+
+/* .my-tt-class + .tooltip.top > .tooltip-arrow {background-color: #f00;} */
+
+/* .bs-tooltip-auto[x-placement^=top] .arrow::before,
+.bs-tooltip-bottom .arrow::before {
+  border-bottom-color: #f00;
+} */
+
+.my-style {
+    color: #c2c2c2;
+}
+
+.my-style1 {
+    color: grey;
+}
+
+::ng-deep .tooltip-inner {
+    background-color: white;
+    color: black;
+    border: 1px solid grey;
+}
+
+/* .tooltip-arrow + .tooltip > .tooltip-inner {background-color: #f00;} */
+
+/* ::ng-deep .tooltip.bottom .tooltip-arrow {
+    color: white;
+} */
+
+.shift-left {
+    padding-left: 1rem;
+}
